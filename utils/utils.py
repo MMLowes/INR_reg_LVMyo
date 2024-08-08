@@ -78,7 +78,7 @@ def create_split_from_numbered_files(root,):
     output:
         dataframe with the split
     """
-    files = glob.glob(os.path.join(root, "*.nii.gz"))
+    files = glob.glob(os.path.join(root, "NIFTI", "*.nii.gz"))
     files = sorted(files, key=lambda x: int(re.search(r"\d+",os.path.basename(x)).group()))
     split = pd.DataFrame({"filename":[os.path.basename(f) for f in files]})
     # split["patient_id"] = os.path.basename(root)
